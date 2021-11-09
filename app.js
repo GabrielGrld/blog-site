@@ -46,6 +46,12 @@ res.redirect("/compose");
 
 });
 
+//get method with routing on the urlencoded
+
+app.get("/posts/:postName", function(req, res){
+  console.log(req.params.postName);
+});
+
 
 
 
