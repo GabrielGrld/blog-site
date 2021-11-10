@@ -5,9 +5,9 @@
 <p> <%=homeStartingContent%> </p>
 
 <% posts.forEach(function(post){ %>
-  <div class="posts"> 
+  <div class="posts">
   <h1><%=post.posTitle%></h1>
-  <p><%=post.postBody%></p>
+  <p><%=post.postBody.substring(0,100)+"..." %></p>
   </div>
 <%});%>
 
