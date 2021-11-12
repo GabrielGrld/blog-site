@@ -7,7 +7,8 @@
 <% posts.forEach(function(post){ %>
   <div class="posts">
   <h1><%=post.posTitle%></h1>
-  <p><%=post.postBody.substring(0,100)+"..." %></p>
+  <p><%=post.postBody.substring(0,100)+"..." %> <a href="/posts/<%=post.posTitle.replace(/ /g,'-').toLowerCase()%>">Read More</a> </p>
+  <% console.log(post.posTitle) %>
   </div>
 <%});%>
 
