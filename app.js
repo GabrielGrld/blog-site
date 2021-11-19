@@ -84,32 +84,25 @@ app.post("/compose", function(req, res) {
   });
   // Post saved
   postItem.save();
-
-  posts.push(post);
-  res.redirect("/compose");
+res.redirect("/compose");
 
 });
 
 //get method with routes with route parameters
-app.get("/posts/:postName", function(req, res) {
-  const requestedTitle = _.lowerCase(req.params.postName);
+app.get("/posts/:postId", function(req, res) {
+  const requestedId = req.params.postId;
+  console.log(requestedId);
+Post.findOne({_id:requestedId},function(err, foundPost){
+  if(!err){
+    console.log(foundPost);
+    res.render('post', {
+      post: foundPost
+    });
+  }
+});
 
-  posts.forEach(function(post) {
-    const postTitle = _.lowerCase(post.posTitle);
 
-    if (postTitle === requestedTitle) {
 
-      res.render('post', {
-        post: post
-      });
-
-      console.log(postTitle + "It is a fucking match");
-
-    } else {
-
-      console.log(postTitle + "not a match");
-    }
-  });
 
 });
 

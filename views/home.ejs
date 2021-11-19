@@ -1,4 +1,6 @@
 <%- include("partials/header") %>
+<div class="container-fluid">
+
 
 <h1>HOME</h1>
 
@@ -7,10 +9,10 @@
 <% posts.forEach(function(post){ %>
   <div class="posts">
   <h1><%=post.title%></h1>
-  <p><%=post.body.substring(0,100)+"..." %> <a href="/posts/<%=post.title.replace(/ /g,'-').toLowerCase()%>">Read More</a> </p>
+  <p><%=post.body.substring(0,100)+"..." %> <a href="/posts/<%=post._id%>">Read More</a> </p>
   <% console.log(post.title) %>
   </div>
 <%});%>
 
-
+</div>
 <%- include("partials/footer") %>
